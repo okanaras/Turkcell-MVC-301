@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - MyAspNetCore.Web</title> @*view;ardaki title dan geliyor*@
+</head>
+<body>
+	<header>
+		header
+		@await RenderSectionAsync("header", required: false)
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody() @*Index icerisindeki butun kodlar buraya eklenir*@
+		</main>
+	</div>
+
+	<footer >
+	footer
+		@await RenderSectionAsync("footer", required: false)
+	</footer>
+
+</body>
+</html>

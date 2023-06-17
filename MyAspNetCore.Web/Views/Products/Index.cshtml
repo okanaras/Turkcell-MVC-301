@@ -1,0 +1,45 @@
+﻿
+@{
+	ViewData["Title"] = "Index";
+}
+@model List<Product> // controllerdan veriyi tasidik
+
+<h1>Urunler</h1>
+
+@if (TempData["status"] != null)  @* burada eger ki tempdata ["status"]!= null degil ise bu kod blogu calisir *@
+{
+	<div class="alert alert-primary" role="alert">
+	  @TempData["status"]
+	</div>	
+}
+
+<td><a class="btn btn-success" asp-controller="products" asp-action="add">Ekle</a></td> @* burda route id yi belirtmemize gerek yok *@
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Isim</th>
+			<th>Fiyat</th>
+			<th>Stok</th>
+			<th>Color</th>
+			<th colspan="2">Islem</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Id</td>
+				<td>@item.Name</td>
+				<td>@item.Price</td>
+				<td>@item.Stock</td>
+				<td>@item.Color</td>
+				
+				<td><a class="btn btn-danger" asp-controller="products" asp-action="remove" asp-route-id="@item.Id">Sil</a></td> @* 3 tane tag.helper dan yararlanicaz 1.si asp-controller contAdi, 2.si asp-action actionMetodAdi, 3.su asp-route-id="item idsi"*@
+
+				<td><a class="btn btn-warning" asp-controller="products" asp-action="update" asp-route-id="@item.Id">Guncelle</a></td> @* 3 tane tag.helper dan yararlanicaz 1.si asp-controller contAdi, 2.si asp-action actionMetodAdi, 3.su asp-route-id="item idsi"*@
+			</tr>
+		}
+	</tbody>
+</table>
+

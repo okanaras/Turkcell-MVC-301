@@ -1,0 +1,37 @@
+﻿@using MyAspNetCore.Web.Controllers; @*en basta namespace'i ekliyoruz*@
+
+@{
+	ViewData["Title"] = "VeriTasimaModelleri";
+}
+
+@model List<Product2>; //Daha sonra liste tipini giriyoruz
+
+
+
+@* ViewModel icin kodlar
+
+@foreach (var item in Model) // yukarda @model'in m si kucuk, burda ise buyuk yaziyoruz
+{
+	<p>@item.Id - @item.Name</p>
+}*@
+
+@*@{
+	<p> @ViewBag.name </p>
+}
+@{
+	var name = ViewBag.name; //degiskene atama
+	<p>@name</p>
+
+}
+
+<p>@name</p>
+
+<hr />
+<p>Yas : @ViewData["age"]</p>
+
+<h1>Isimler</h1>
+@foreach (var item in ViewData["names"] as List<string>) // as ile tipini belirliyoruz tipide contorllerda ne ise o biz new list string vermistik
+{
+								<p>@item</p>
+}
+<p> @ViewBag.person.Id - @ViewBag.person.name- @ViewBag.person.age;<p>*@

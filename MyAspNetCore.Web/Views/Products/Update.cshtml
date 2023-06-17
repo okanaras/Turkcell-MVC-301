@@ -1,0 +1,24 @@
+﻿
+@{
+	ViewData["Title"] = "Update";
+}
+
+@model Product  // 3. veri alma methodu icin ilk bunu ekle daha sonra form inputlar icin asp-for="" tag.helper i kullan
+
+<h1>Urun Guncelle</h1>
+
+<form asp-controller="Products" asp-action="Update" asp-route-type="HypridOrnek" method="post">
+	<label>Urun Adi: </label>
+	<input type="hidden" asp-for="Id"/> @* buraya duzenlenecek id yi de girdik ama kullaniciya gostermedik *@
+	<input type="text" asp-for="Name" /> <br /> 
+	 <label>Urun Fiyati: </label>
+	<input type="text" asp-for="Price" />  <br />
+	 <label>Urun Stok: </label>
+	<input type="text" asp-for="Stock" />  <br />
+	 <label>Urun Renk: </label>
+	<input type="text" asp-for="Color" />  <br />
+
+	<button type="submit">Urun Guncelle</button>
+
+</form>
+

@@ -1,0 +1,23 @@
+﻿
+@{
+	ViewData["Title"] = "Add";
+}
+@model Product  // 3. veri alma methodu icin ilk bunu ekle daha sonra form inputlar icin asp-for="" tag.helper i kullan
+
+<h1>Urun Ekle</h1>
+
+<form asp-controller="Products" asp-action="Add" method="post">
+
+	<label>Urun Adi: </label>
+	<input type="text" asp-for="Name" /> <br /> @* buralardaki name="" leri kaldirdik artik *@
+	 <label>Urun Fiyati: </label>
+	<input type="text" asp-for="Price" />  <br />
+	 <label>Urun Stok: </label>
+	<input type="text" asp-for="Stock" />  <br />
+	 <label>Urun Renk: </label>
+	<input type="text" asp-for="Color" />  <br />
+
+	<button type="submit">Urun Kaydet</button>
+
+</form>
+

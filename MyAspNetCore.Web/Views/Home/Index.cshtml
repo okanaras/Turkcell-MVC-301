@@ -1,0 +1,35 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+@section Css{
+
+		<link rel="stylesheet" href="~/css/example.css" asp-append-version="true" />
+	<style>
+	.sectionCss {
+		color:blue;
+		background-color:red;
+	}
+	</style>
+
+}
+
+@section Scripts{
+		<script type="text/javascript">
+			alert("Hosgeldin")
+			$(document).ready(function(){ /*butun html taglari yuklendikten sonra*/
+				console.log("Sayfaya Hosgeldin")
+			})
+		</script>
+}
+
+
+<div class="text-center">
+	<h1 class="display-4 sectionCss">Welcome</h1>
+	<h1 class="sectionCss2">MerhabaASP.NET</h1>
+	<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<partial name="_MenuPartialView"/> @* bu kodu kullan*@
+@await Html.PartialAsync("_MenuPartialView") @* async olan yere await koy Goz yorar kod*@
+@Html.Partial("_MenuPartialView") @*tercih etme async olan daima kullan*@
